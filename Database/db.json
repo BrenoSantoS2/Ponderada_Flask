@@ -1,0 +1,14 @@
+{
+  "_default": {
+    "1": {
+      "robot_action": "Robot initialized",
+      "date": "2021-09-01",
+      "time": "12:00"
+    },
+    "2": {
+      "robot_action": "Robot moved",
+      "date": "2021-09-01",
+      "time": "12:05"
+    }
+  }
+}

@@ -8,12 +8,14 @@
 
     <body>
         <h1>DashBoard</h1>
+        <h2>Tabela de logs:</h2>
         <div>
-            <p>Passos futuros</p>
+            <p hx-get="/get_data" hx-trigger="every 2s">Passos futuros</p>
         </div>
 
         <h1>Robo</h1>
-        <p>robo conectado, escolha uma das funções comtempladas abaixo para o robo.</p>
+        <p hx-get="/robot_is_connected" hx-trigger="every 5s">Espaço para conexão do robo</p>
+
         <div>
             <button>Ligar Ferramenta</button>
             <button>Desligar Ferramenta</button>

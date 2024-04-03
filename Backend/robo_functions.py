@@ -1,21 +1,24 @@
 from serial.tools import list_ports
-from Backend.moveJ import Arm
-
-#Define alguns parâmetros (Instânciando Typer, Definindo o Spiner e Listanto as portas).
-available_ports = list_ports.comports()
+from moveJ import Arm
 
 # Encontra automaticamente a porta em que o robô está conectado
-for port in available_ports:
-    if "Dispositivo Serial USB" in port.description:
-        chosen_port = port.device
-        print(f"Porta encontrada: {chosen_port}")
-        break
-else:
+def find_port():
+    available_ports = list_ports.comports()
+    robot_is_connected = False
+
+    for port in available_ports:
+        if "Dispositivo Serial USB" in port.description:
+            chosen_port = port.device
+            print(f"Porta encontrada: {chosen_port}")
+            robot_is_connected = True
+            return chosen_port, robot_is_connected
+        
     print("Nenhuma porta encontrada para o robô.")
-    raise SystemExit(1)
+    return None, robot_is_connected
 
 #Instancia a biblioteca do robo.
-robot = Arm(port=chosen_port, verbose=False)
+if find_port()[1] == True:
+    robot = Arm(port=find_port()[0], verbose=False)
 
 # Função responsável por iniciar a ferramenta conectado ao robo
 def initialize_tool():
@@ -33,29 +36,21 @@ def home():
     robot.movej_to(230, 1, 159, 0, wait=True)
 
 # Função responsável por mover o robo para a distância e eixo escolhido pelo usuário
-def move():
+def move(axle,distance):
     actual_position = robot.pose()
     x,y,z,w = actual_position[:4]
     
-    chosen_axle = inquirer.prompt([
-    inquirer.List("axle",message="Para qual eixo você quer que o robo se mova: ", choices=["Eixo X","Eixo Y", "Eixo Z"])
-    ])["axle"]
-
-    chosen_distance = inquirer.prompt([
-    inquirer.Text("distance",message="Digite a distância do movimento desejado: ")
-    ])["distance"]
-
-    if chosen_axle == "Eixo X":
+    if axle == "x":
         robot.wait(300)
-        robot.movej_to(x + float(chosen_distance), y, z, w, wait=True)
+        robot.movej_to(x + float(distance), y, z, w, wait=True)
     
-    elif chosen_axle == "Eixo Y":
+    elif axle == "y":
         robot.wait(300)
-        robot.movej_to(x, y + float(chosen_distance), z, w, wait=True)
+        robot.movej_to(x, y + float(distance), z, w, wait=True)
     
-    elif chosen_axle == "Eixo Z":
+    elif axle == "z":
         robot.wait(300)
-        robot.movej_to(x, y, z + float(chosen_distance), w, wait=True)
+        robot.movej_to(x, y, z + float(distance), w, wait=True)
 
 # Função responsável por mostrar no console a localização atual do robo
 def actual_location():

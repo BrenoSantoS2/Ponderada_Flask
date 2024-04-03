@@ -1,7 +1,10 @@
+from serial.serialutil import SerialException
 from serial.tools import list_ports
 from moveJ import Arm
 
 # Encontra automaticamente a porta em que o robô está conectado
+last_robot_connection_check = False
+
 def find_port():
     available_ports = list_ports.comports()
     robot_is_connected = False
@@ -17,8 +20,16 @@ def find_port():
     return None, robot_is_connected
 
 #Instancia a biblioteca do robo.
-if find_port()[1] == True:
-    robot = Arm(port=find_port()[0], verbose=False)
+if last_robot_connection_check != find_port()[1]:
+    if find_port()[1] == True:
+        last_robot_connection_check = True
+        try:
+            robot = Arm(port=find_port()[0], verbose=False)
+        except SerialException as e:
+            print(f"Erro ao abrir a porta serial: {e}")
+    else:
+        last_robot_connection_check = False
+        robot = None
 
 # Função responsável por iniciar a ferramenta conectado ao robo
 def initialize_tool():

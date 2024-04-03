@@ -14,14 +14,15 @@
         </div>
 
         <h1>Robo</h1>
-        <p hx-get="/robot_is_connected" hx-trigger="every 5s">Espaço para conexão do robo</p>
+        <p hx-get="/robot_is_connected" hx-trigger="every 5s">Esperando atulização do estado do robo...</p>
 
         <div>
-            <button>Ligar Ferramenta</button>
-            <button>Desligar Ferramenta</button>
-            <button>Mover</button>
-            <button>Posição Atual</button>
-            <button>Posição Inicial</button>
+            <button hx-put="/initialize_tool" hx-trigger="click" >Ligar Ferramenta</button>
+            <button hx-put="/turn_off_tool" hx-trigger="click" >Desligar Ferramenta</button>
+            <button hx-put=""  hx-trigger="click">Mover</button>
+            <button hx-put="/actual_location"  hx-trigger="click" >Posição Atual</button>
+            <button hx-put="/home_position"  hx-trigger="click" >Posição Inicial</button>
+            <p id="status_msg"></p>
         </div>
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,14 +1,1 @@
-{
-  "_default": {
-    "1": {
-      "robot_action": "Robot initialized",
-      "date": "2021-09-01",
-      "time": "12:00"
-    },
-    "2": {
-      "robot_action": "Robot moved",
-      "date": "2021-09-01",
-      "time": "12:05"
-    }
-  }
-}
+{"_default": {"1": {"robot_action": "Robo levado a posi\u00e7\u00e3o inicial", "date": "04/04/2024", "time": "17:52:00"}, "2": {"robot_action": "Robo movido -200 no eixo z", "date": "04/04/2024", "time": "17:52:12"}, "3": {"robot_action": "Robo movido 200 no eixo z", "date": "04/04/2024", "time": "17:52:18"}, "4": {"robot_action": "Robo levado a posi\u00e7\u00e3o inicial", "date": "04/04/2024", "time": "17:52:44"}, "5": {"robot_action": "Localiza\u00e7\u00e3o atual do robo foi pega", "date": "04/04/2024", "time": "17:52:50"}, "6": {"robot_action": "Ferramenta inicializada", "date": "04/04/2024", "time": "17:53:07"}, "7": {"robot_action": "Ferramenta desligada", "date": "04/04/2024", "time": "17:53:23"}, "8": {"robot_action": "Robo movido -200 no eixo z", "date": "04/04/2024", "time": "17:53:35"}, "9": {"robot_action": "Robo movido 200 no eixo z", "date": "04/04/2024", "time": "17:53:46"}}}

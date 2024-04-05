@@ -1,0 +1,108 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 20px 0;
+    color: #333;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Parágrafos e listas */
+p {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #555;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    font-size: 1em;
+    margin: 10px 0;
+    color: #555;
+}
+
+/* Botões */
+button {
+    border-radius: 30px;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Inputs */
+input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+/* Formulários */
+form {
+    margin-top: 20px;
+}
+
+/* Mensagens de status */
+#status_msg {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #4caf50;
+}
+
+#move_mesage {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #4caf50;
+}
